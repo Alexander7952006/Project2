@@ -66,12 +66,13 @@ def dec_tr_symmetry(space_param):
     return decorator
 
 
-def dec_tr_homothety(space_param):
+def dec_tr_homothety(k, space_param):
     """Декоратор на основе функции tr_homothety.
 
         Args:
             space_param(int or float): отступ подобной последовательности
              от исходных значений
+            k(int or float): коефицент подобия
 
         Returns:
             decorator(function): задекорировання функция
@@ -81,7 +82,7 @@ def dec_tr_homothety(space_param):
         @functools.wraps(func)
         def wrapper(*args):
             new_args = list(args)
-            new_args[0] =  gp.tr_translate(new_args[0], space = space_param)
+            new_args[0] =  gp.tr_homothety(new_args[0], k = k, space = space_param)
             result = func(*new_args)
             return result
         return wrapper
