@@ -77,7 +77,7 @@ def tr_homothety(polygons, k, space=None):
         """Поиск центральной точки полигона
 
             Args:
-                polygon(егзду): полигон
+                polygon(tuple): полигон
 
             Returns:
                 tuple: центральная точка
